@@ -1,7 +1,7 @@
 
 public class AsalSayiBulma {
     public static void main(String[] args){
-
+// 0 - 100 arasındaki asal sayilari bulma
         int sayac=0;
         for (int i=2; i<100; i++){
 
