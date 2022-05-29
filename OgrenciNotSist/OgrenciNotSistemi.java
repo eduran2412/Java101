@@ -1,3 +1,7 @@
+package OgrenciNotSist;
+
+import OgrenciNotSist.Course;
+
 public class OgrenciNotSistemi {
     public static void main(String[] args) {
         Teacher t1 = new Teacher("Ahmet","1111","TRH");

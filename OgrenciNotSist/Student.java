@@ -1,3 +1,7 @@
+package OgrenciNotSist;
+
+import OgrenciNotSist.Course;
+
 public class Student {
     Course c1;
     Course c2;

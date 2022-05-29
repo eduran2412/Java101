@@ -1,3 +1,5 @@
+package OgrenciNotSist;
+
 public class Course {
     Teacher teacher;
     String name;

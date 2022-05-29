@@ -1,3 +1,5 @@
+package OgrenciNotSist;
+
 public class Teacher {
     String name;
     String mpno;
