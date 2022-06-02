@@ -12,8 +12,6 @@ public class DiziOrtalamaHes {
         double average = sum / list.length;
         System.out.println(average); */
 
-
-        
         int [] list = {1,2,3};
         double harmonikSeri = 0;
 
