@@ -39,11 +39,11 @@ public class TekrarEdenBul {
 
         int[] lst1 = new int[startIndex];
 
-        for (int j : dupliacate){
+       // for (int j : dupliacate){
             for (int k = 0; k<startIndex; k++){
                 lst1[k] = dupliacate[k];
             }
-        }
+    //    }
         System.out.println(Arrays.toString(lst1));
 
     }
