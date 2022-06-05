@@ -15,7 +15,7 @@ public class SayiTahmin {
 
         int select;
         int right = 0;
-        int[] wrong = new int[5]; 
+        int[] wrong = new int[5];
         boolean isWrong = false;
         boolean isWin = false;
 
