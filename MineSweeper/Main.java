@@ -2,13 +2,18 @@ package MineSweeper;
 
 import java.util.Scanner;
 
+import static MineSweeper.MineSweeper.isMore;
+
+
 public class Main {
+
     static void basla() {
-        boolean isMore = true;
-        while (isMore) {
+
+
+        while (isMore()) {
             try {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Oyuna Hoşgeldiniz");
+                System.out.println("Oyuna Hoşgeldiniz\n");
 
                 System.out.print("Oluşturmak istediğiniz matrisin satır numarası :");
                 int satır = scanner.nextInt();
@@ -18,15 +23,18 @@ public class Main {
                 if ((satır > 1) && (sütun > 1)) {
                     MineSweeper mineSweeper = new MineSweeper(satır, sütun);
                     mineSweeper.run();
+
                 } else {
                     throw new Exception();
                 }
 
             } catch (Exception e) {
                 System.out.println("Hata! Lütfen Girdiğiniz Değerleri Kontrol Edip Tekrar Deneyiniz...");
+
             }
-            isMore = false;
+
         }
+
 
     }
 
@@ -36,5 +44,7 @@ public class Main {
 
 
     }
+
+
 }
 

@@ -1,5 +1,6 @@
 package MineSweeper;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,12 +8,58 @@ public class MineSweeper {
     Random rand = new Random();
     Scanner scanner = new Scanner(System.in);
 
+    public void scary(String[][] mtr) { // mayına basınca korkunc yüz ifadesi cıkması icin
 
+        for (int i = 0; i < mtr.length; i++) {
+            for (int j = 0; j < mtr[i].length; j++) {
+                mtr[i][j] = " ";
+                if ((i == 0 && (j == 0 || j == 6)) || (i == 6 && (j == 0 || j == 6))) {
+                    mtr[i][j] = "*";
+                }
+                if ((i == 1 && (j == 1 || j == 5)) || (i == 5 && (j == 1 || j == 5))) {
+                    mtr[i][j] = "*";
+                }
+
+            }
+
+        }
+
+        mtr[2][2] = "x";
+        mtr[2][4] = "x";
+
+        for (int i = 2; i <= 4; i++) {
+            mtr[1][i] = ".";
+            mtr[i][1] = ".";
+            mtr[5][i] = ".";
+            mtr[i][5] = ".";
+            mtr[4][i] = "*";
+        }
+
+
+        for (String[] strings : mtr) {
+            for (int j = 0; j < mtr[0].length; j++) {
+                System.out.print(" " + strings[j]);
+            }
+            System.out.println();
+        }
+
+
+    }
+
+    String[][] scaryFace = new String[7][7];
     String[][] map;
     String[][] board;
     int rowNumber, colNumber, size;
-    boolean isWin = true;
+    static boolean isWin = true; // static yapıldı static metot içerisinde kullanabilmek için
     int sum = 0;
+
+
+    public static boolean isMore() { // mayına basınca oyunun sonlanması için oluşturuldu.
+        if (isWin == false) {
+            return false;
+        }
+        return true;
+    }
 
     MineSweeper(int rowNumber, int colNumber) { // constructor
         this.rowNumber = rowNumber;
@@ -51,13 +98,13 @@ public class MineSweeper {
 
     }
 
-    public void run() {
+    public void run() { // oyunun çalıştığı metot
         System.out.println("--------------------");
         System.out.println("Oyun Başladı!");
         int row, col;
         int succes = 0;
         createMines();
-        //   print(map);
+        print(map);
         createBoard();
         System.out.println("--------------------");
 
@@ -91,7 +138,10 @@ public class MineSweeper {
                     } else {
                         isWin = false;
                         System.out.println("Mayına Bastınız!");
+                        scary(scaryFace);
+                        System.out.println("Mayınların yerleri");
                         print(map);
+                        isMore();
                     }
 
                 } else {
@@ -106,7 +156,7 @@ public class MineSweeper {
 
     }
 
-    public void print(String[][] arr) {
+    public void print(String[][] arr) { // seçilen matrisi yazdırma
         System.out.println("*==================*");
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[1].length; j++) {
@@ -117,7 +167,7 @@ public class MineSweeper {
         }
     }
 
-    public void check(int r, int c) {
+    public void check(int r, int c) { // seçilen noktanın etrafındaki mayınları kontrol etme
         if (board[r][c].equals("-")) {
             if ((c < colNumber - 1) && (map[r][c + 1].equals("*"))) { //noktanın sağ tarafının kontrolü
                 sum++;
