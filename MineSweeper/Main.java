@@ -8,12 +8,12 @@ import static MineSweeper.MineSweeper.isMore;
 public class Main {
 
     static void basla() {
-
+        System.out.println("\nOyuna Hoşgeldiniz\n");
 
         while (isMore()) {
             try {
                 Scanner scanner = new Scanner(System.in);
-                System.out.println("Oyuna Hoşgeldiniz\n");
+
 
                 System.out.print("Oluşturmak istediğiniz matrisin satır numarası :");
                 int satır = scanner.nextInt();
@@ -29,7 +29,7 @@ public class Main {
                 }
 
             } catch (Exception e) {
-                System.out.println("Hata! Lütfen Girdiğiniz Değerleri Kontrol Edip Tekrar Deneyiniz...");
+                System.out.println("\nHata! Lütfen Girdiğiniz Değerleri Kontrol Edip Tekrar Deneyiniz...\n");
 
             }
 
